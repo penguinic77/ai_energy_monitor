@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+  aiserver:
+    image: python:3.8
+    container_name: aiserver
+    volumes:
+      - .:/opt/aiserver
+    ports:
+      - "5000:5000"
+  influxdb:
+    image: influxdb
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=e
+      - TZ=US/Eastern
